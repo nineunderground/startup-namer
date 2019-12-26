@@ -2,6 +2,17 @@
 
 A new Flutter project.
 
+## OSX
+
+Open simulator:
+
+```
+ open -a Simulator
+```
+
+Whatsapp Example:
+https://github.com/iampawan/FlutterWhatsAppClone
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

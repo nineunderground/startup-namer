@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
+// Custom class RandomWords
 class RandomWords extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -33,6 +34,7 @@ class RandomWords extends StatefulWidget {
   // RandomWordsState createState() => RandomWordsState();
 }
 
+// Class state for custom class RandomWords
 class RandomWordsState extends State<RandomWords> {
   // Prefixing an identifier with an underscore enforces privacy
   final _suggestions = <WordPair>[];
@@ -44,7 +46,7 @@ class RandomWordsState extends State<RandomWords> {
     // return Text(wordPair.asPascalCase);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Startup Name Generator'),
+        title: Text('Name Generator'),
       ),
       body: _buildSuggestions(),
     );
@@ -54,14 +56,19 @@ class RandomWordsState extends State<RandomWords> {
     return ListView.builder(
         padding: const EdgeInsets.all(16.0),
         itemBuilder: (context, i) {
+          // 30 callbacks, i.e. itemBuilder, and then increases as long as user scrolls down
           // Adds a divider
           if (i.isOdd) return Divider();
 
           // Adds a random word
           final index = i ~/ 2;
+          //print('\nINDEX: $index');
           if (index >= _suggestions.length) {
             _suggestions.addAll(generateWordPairs().take(10));
           }
+
+          //if (i > 3) return null;
+          //print('\nCALLBACK: $i');
 
           // Returns a ListTile
           return _buildRow(_suggestions[index]);
